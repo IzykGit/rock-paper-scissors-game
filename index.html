@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Rock, Paper, Scissors</title>
+
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+  <main class="main">
+    <div class="options-score">
+      <div class="options">
+        <p id="rock">ROCK</p>
+        <p id="paper">PAPER</p>
+        <p id="scissors">SCISSORS</p>
+      </div>
+      <div class="score-container">
+          <p class="score-label">SCORE</p>
+          <p id="score" class="score" >0</p>
+      </div>
+    </div>
+
+    
+  
+
+    <div class="game"> 
+
+        <div class="user-choice">
+          <p id="user-header">YOU PICKED</p>
+          <div id="user-icon"></div>
+        </div>
+        <div class="result-container">
+          <p id="game-result">YOU WIN</p>
+          <button id="play-again">PLAY AGAIN</button>
+        </div>
+
+        <div class="computer-choice">
+          <p id="computer-header">THE HOSUE PICKED</p>
+          <div id="computer-icon" class="choice-icon"></div>
+        </div>
+
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <button>RULES</button>
+  </footer>
+  <script src="./index.js"></script>
+</body>
+</html>

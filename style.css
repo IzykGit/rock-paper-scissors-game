@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: hsl(237, 49%, 15%);
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: space-evenly;
+    font-family: "Barlow Semi Condensed", sans-serif;
+    height: 100vh;
+}
+
+.main {
+    border: 1px solid white;
+    width: 70%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.options-score {
+    border: 1px solid white;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.score-container {
+    text-align: center;
+    border: 1px solid white;
+    width: 150px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 2px 0px 1px hsl(217, 16%, 45%);
+    height: fit-content;
+}
+
+.score-label  {
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 2px;
+    margin-bottom: 0px;
+    color: hsl(229, 64%, 46%);
+}
+
+.score {
+    font-size: 50px;
+    font-weight: 700;
+    margin: 0;
+    margin-bottom: 15px;
+    color: hsl(229, 25%, 31%);
+}
+
+
+.options {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.options > * {
+    margin: 0;
+    font-size: 45px;
+    font-weight: 700;
+    color: white;
+    line-height: 35px;
+    transition: 0.2s;
+    text-shadow: 0px 2px 0px rgb(95, 95, 95);
+}
+
+.options > *:hover {
+    color: rgb(190, 166, 114);
+    cursor: pointer;
+}
+
+
+
+
+.game {
+   border: 1px solid white; 
+   padding: 50px;
+   display: flex;
+   justify-content: space-evenly;
+   width: 100%;
+}
+
+
+.result-container {
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+
+
+/* Result inital state */
+
+.result-text-inital {
+    width: 0;
+    display: none;
+}
+
+.result-btn-initial {
+    width: 0;
+    display: none;
+}
+
+
+
+
+
+
+
+
+/* User initial state */
+
+
+.user-choice {
+    border: 1px solid white;
+    text-align: center;
+}
+
+.user-choice > p {
+    font-weight: 700px;
+    margin-bottom: 40px;
+    font-size: 20px;
+    color: white;
+    letter-spacing: 5px;
+}
+
+
+
+
+
+
+.unselected {
+    width: 250px;
+    height: 250px;
+    border-radius: 100%;
+    background-color: #17223e;
+    box-shadow: 0px 5px 0px 3px #131c33;
+}
+
+
+
+.computer-choice > p {
+    font-weight: 700px;
+    margin-bottom: 40px;
+    font-size: 20px;
+    color: white;
+    letter-spacing: 5px;
+}
+
+.computer-choice > img {
+    width: 150px;
+    padding: 50px;
+    background-color: white;
+    border-radius: 100%;
+    border: 30px solid hsl(40, 84%, 53%);
+    box-shadow: 0px 5px 0px 3px hsl(39, 89%, 36%), 0px 5px 0px 3px hsl(43, 5%, 72%) inset;
+}
+
+
+
+
+.footer {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    position: relative;
+    text-align: right;
+    right: 75px;
+}
+
+.footer > button {
+    padding: 10px 30px 10px 30px;
+    border-radius: 10px;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Active States */
+
+
+.selected-icon {
+    width: 150px;
+    height: 150px;
+    padding: 50px;
+    background-color: white;
+    border-radius: 100%;
+    border: 30px solid hsl(40, 84%, 53%);
+    box-shadow: 0px 5px 0px 3px hsl(39, 89%, 36%), 0px 5px 0px 3px hsl(43, 5%, 72%) inset;
+    display: unset;
+}
+
+
+.computer-choice {
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: unset;
+}
+
+
+
+
+.active-result-text {
+    font-size: 55px;
+    font-weight: 700;
+    color: white;
+    text-shadow: 0px 2px 0px rgb(95, 95, 95);
+    letter-spacing: 3px;
+}
+
+.active-play-btn {
+    padding: 15px 50px 15px 50px;
+    font-weight: 600;
+    color: hsl(229, 25%, 31%);
+    background-color: white;
+    border: none;
+    box-shadow: 0px 1px 0px 1px hsl(229, 25%, 31%);
+    border-radius: 5px;
+}
+
+
