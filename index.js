@@ -158,16 +158,29 @@ function gameEnd() {
             playBtn.classList.add('active-play-btn')
 
 
-            gameScore + 10
+            gameScore = gameScore + 10;
+            console.log(gameScore)
             score.innerText = gameScore
             break;
+
+
+
         case winState = -1:
             console.log("No")
             gameResult.innerText = "Loser"
             gameResult.classList.add('active-result-text')
             playBtn.innerText = "Play Again"
             playBtn.classList.add('active-play-btn')
+
+            
+
+            gameScore = gameScore - 10;
+            console.log(gameScore)
+            score.innerText = gameScore
             break;
+
+
+
         case winState = 0:
             console.log("Eh")
             gameResult.innerText = "Tie"
