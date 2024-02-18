@@ -25,6 +25,10 @@ body {
 }
 
 @media screen and (max-width: 1600px) {
+    body {
+        justify-content: flex-start;
+    }
+
     .main {
         width: 90%;
     }
