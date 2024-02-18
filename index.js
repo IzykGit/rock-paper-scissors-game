@@ -286,7 +286,7 @@ function gameEnd() {
 
 
             setTimeout(() => {
-                gameResult.innerText = "Winner"
+                gameResult.innerText = "You Win!"
                 gameResult.classList.add('active-result-text')
                 playBtn.innerText = "Play Again"
                 playBtn.classList.add('active-play-btn')
@@ -306,7 +306,7 @@ function gameEnd() {
             console.log("No")
 
             setTimeout(() => {
-                gameResult.innerText = "Loser"
+                gameResult.innerText = "You Lose!"
                 gameResult.classList.add('active-result-text')
                 playBtn.innerText = "Play Again"
                 playBtn.classList.add('active-play-btn')
