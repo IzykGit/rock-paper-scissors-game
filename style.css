@@ -12,6 +12,7 @@ body {
     justify-content: space-evenly;
     font-family: "Barlow Semi Condensed", sans-serif;
     height: 100vh;
+    caret-color: transparent;
 }
 
 .main {
