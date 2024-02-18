@@ -88,7 +88,12 @@ body {
 
 
 
+
+
+
 /* Selection Screen */
+
+
 
 .select-screen {
     display: flex;
@@ -246,7 +251,7 @@ body {
     padding: 0;
     width: 100%;
     text-align: right;
-    right: 75px;
+    position: relative;
 }
 
 .footer > button {
@@ -262,13 +267,39 @@ body {
 
 
 
-/* Selection Animations */ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Initiated Selection Animations */ 
+
+
+/* Longest animation time in this sequence 2s */
 
 .select-start-remove {
+    text-align: center;
+    width: 400px;
+    margin-bottom: 70px;
+    font-size: 35px;
+    font-weight: 700;
+    color: white;
+
+
     animation-name: selectStartRemove;
     animation-duration: 0.5s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
+    animation-iteration-count: 1;
 }
 
 
@@ -322,12 +353,12 @@ body {
 
 @keyframes selectStartRemove {
     0% {
-        transform: translateY(0px);
+        transform: translateY(20px);
     }
 
     50% {
         opacity: 1;
-        transform: translateY(-10px);
+        transform: translateY(-30px);
     }
 
     100% {
@@ -339,18 +370,37 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
 /* Game section after selection */
 
 
-.game {
-   padding: 50px;
-   display: none;
-   visibility: hidden;
-   justify-content: space-evenly;
-   align-items: center;
-   width: 100%;
-   height: 50%;
+.select-screen-remove {
+    display: none;
 }
+
+.add-game-screen {
+    display: flex;
+    visibility: visible;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+    padding: 50px;
+}
+
+
+
+.game {
+    visibility: hidden;
+}   
 
 
 .result-container {
@@ -365,6 +415,14 @@ body {
 
 
 
+
+
+
+
+
+
+
+
 /* Result inital state */
 
 .result-text-inital {
@@ -376,6 +434,12 @@ body {
     width: 0;
     display: none;
 }
+
+
+
+
+
+
 
 
 
@@ -506,7 +570,10 @@ body {
 
 
 
-/* Scissors */
+
+
+
+/* Scissors Active State */
 
 .scissors-selected {
     width: 150px;
@@ -527,7 +594,10 @@ body {
 }
 
 
-/* Paper */
+
+
+
+/* Paper Active State */
 
 .paper-selected {
     width: 150px;
@@ -549,7 +619,7 @@ body {
 
 
 
-/* Rock */ 
+/* Rock Active State */ 
 
 .rock-selected {
     width: 150px;
@@ -570,7 +640,7 @@ body {
 
 
 
-/* Lizard */ 
+/* Lizard Active State */ 
 
 .lizard-selected {
     width: 150px;
@@ -591,7 +661,7 @@ body {
 }
 
 
-/* spock */
+/* Spock Active State */
 
 .spock-selected {
     width: 150px;
