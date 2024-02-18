@@ -15,6 +15,15 @@
 
 
   <main class="main">
+
+
+    <div class="rules-container" id="rules">
+        <div class="rules"></div>
+        <button id="close-rules">BACK</button>
+    </div>
+
+
+
     <div class="options-score">
       <div class="options">
         <p id="rock">ROCK</p>
@@ -29,8 +38,8 @@
       </div>
     </div>
 
-    <div class="select-screen">
-      <div>
+    <div id="select-screen" class="select-screen">
+      <div id="select-start" class="select-start">
         <p>SELECT TO START GAME</p>
       </div>
       <div class="game-icons">
@@ -45,7 +54,7 @@
     
   
 
-    <div class="game"> 
+    <div id="game-screen" class="game"> 
 
         <div class="user-choice">
           <p id="user-header">YOU PICKED</p>
@@ -68,7 +77,7 @@
   </main>
 
   <footer class="footer">
-    <button>RULES</button>
+    <button id="rules-button">RULES</button>
   </footer>
   <script src="./index.js"></script>
 </body>
