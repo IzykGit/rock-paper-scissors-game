@@ -704,12 +704,7 @@ body {
 /* Winning Style */ 
 
 
-.user-win-shadow {
-    opacity: 0;
-    z-index: -1;
-}
-
-.computer-win-shadow {
+.win-shadow-initial {
     opacity: 0;
     z-index: -1;
 }

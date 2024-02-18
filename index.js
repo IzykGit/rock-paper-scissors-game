@@ -291,7 +291,10 @@ function gameEnd() {
                 playBtn.innerText = "Play Again"
                 playBtn.classList.add('active-play-btn')
 
-                userIcon.classList.add('user-win-shadow-active')
+                if(gameResult.innerText === "You Win!") {
+                    userIcon.classList.add('user-win-shadow-active')
+                }
+
             }, 1000)
 
             gameScore = gameScore + 1;
@@ -313,8 +316,10 @@ function gameEnd() {
                 playBtn.innerText = "Play Again"
                 playBtn.classList.add('active-play-btn')
 
+                if(gameResult.innerText === "You Lose!") {
+                    computerIcon.classList.add('computer-win-shadow-active')
+                }
 
-                computerIcon.classList.add('computer-win-shadow-active')
             }, 1000)
 
 
@@ -333,13 +338,17 @@ function gameEnd() {
             console.log("Eh")
 
             setTimeout(() => {
-                gameResult.innerText = "Tie"
+                gameResult.innerText = "Tie!"
                 gameResult.classList.add('active-result-text')
                 playBtn.innerText = "Play Again"
                 playBtn.classList.add('active-play-btn')
 
-                computerIcon.classList.add('computer-win-shadow-active')
-                userIcon.classList.add('user-win-shadow-active')
+
+                if(gameResult.innerText === "Tie!") {
+                    computerIcon.classList.add('computer-win-shadow-active')
+                    userIcon.classList.add('user-win-shadow-active')
+                }
+
             }, 1000)
 
 
@@ -356,56 +365,59 @@ function gameEnd() {
 
 function resetGame() {
 
-    computerIcon.classList.remove("rock-selected")
-    computerIcon.classList.remove("paper-selected")
-    computerIcon.classList.remove("scissors-selected")
-    computerIcon.classList.remove("lizard-selected")
-    computerIcon.classList.remove("spock-selected")
+    computerIcon.classList.remove('rock-selected')
+    computerIcon.classList.remove('paper-selected')
+    computerIcon.classList.remove('scissors-selected')
+    computerIcon.classList.remove('lizard-selected')
+    computerIcon.classList.remove('spock-selected')
+    computerIcon.classList.remove('computer-win-shadow-active')
+
+    userIcon.classList.remove('scissors-selected');
+    userIcon.classList.remove('paper-selected');
+    userIcon.classList.remove('rock-selected');
+    userIcon.classList.remove('lizard-selected');
+    userIcon.classList.remove('spock-selected');
+    userIcon.classList.remove('user-win-shadow-active');
 
 
-    userIcon.classList.remove('scissors-selected')
-    userIcon.classList.remove('paper-selected')
-    userIcon.classList.remove('rock-selected')
-    userIcon.classList.remove('lizard-selected')
-    userIcon.classList.remove('spock-selected')
+    gameResult.classList.remove('active-result-text');
+    playBtn.classList.remove('active-play-btn');
+
+    lizardIcon.classList.remove('lizardIcon-select');
+    spockIcon.classList.remove('spockIcon-select');
+    rockIcon.classList.remove('rockIcon-select');
+    paperIcon.classList.remove('paperIcon-select');
+    scissorsIcon.classList.remove('scissorsIcon-select');
+
+    selectScreen.classList.remove('select-screen-remove');
 
 
-    gameResult.classList.remove('active-result-text')
-    playBtn.classList.remove('active-play-btn')
-
-    lizardIcon.classList.remove('lizardIcon-select')
-    spockIcon.classList.remove('spockIcon-select')
-    rockIcon.classList.remove('rockIcon-select')
-    paperIcon.classList.remove('paperIcon-select')
-    scissorsIcon.classList.remove('scissorsIcon-select')
-
-    selectScreen.classList.remove('select-screen-remove')
-
-
-    selectText.classList.add('select-start')
-    selectText.classList.remove('select-start-remove')
-
-
-
-
-    computerIcon.classList.add("unselected");
-    userIcon.classList.add("unselected");
+    selectText.classList.add('select-start');
+    selectText.classList.remove('select-start-remove');
 
 
 
-    gameScreen.classList.add("game")
-    selectScreen.classList.add("select-screen")
+
+    computerIcon.classList.add('unselected');
+    userIcon.classList.add('unselected');
 
 
-    playBtn.classList.add("result-btn-initial")
-    gameResult.classList.add("result-text-inital")
 
-    computerState = 0
-    playerState = 0
-    isActive = false
-    winState = 0
 
-    console.log('reset')
+
+    gameScreen.classList.add("game");
+    selectScreen.classList.add("select-screen");
+
+
+    playBtn.classList.add("result-btn-initial");
+    gameResult.classList.add("result-text-inital");
+
+    computerState = 0;
+    playerState = 0;
+    isActive = false;
+    winState = 0;
+
+    console.log('reset');
 }
 
 
