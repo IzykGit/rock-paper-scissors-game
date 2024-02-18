@@ -741,6 +741,10 @@ body {
 /* Show Rules */ 
 
 .rules-container {
+    opacity: 0;
+}
+
+.rules-container-close {
     animation-name: closeRules;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;

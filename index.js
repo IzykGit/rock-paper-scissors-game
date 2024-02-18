@@ -114,7 +114,7 @@ rulesButton.addEventListener("click", () => {
 
 closeRules.addEventListener("click", () => {
     rules.classList.remove('rules-container-open')
-    rules.classList.add('rules-container')
+    rules.classList.add('rules-container-close')
 })
 
 
