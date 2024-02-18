@@ -11,7 +11,8 @@ body {
     align-items: center;
     justify-content: space-evenly;
     font-family: "Barlow Semi Condensed", sans-serif;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100dvh;
     caret-color: transparent;
 }
 
