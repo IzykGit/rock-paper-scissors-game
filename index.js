@@ -291,7 +291,7 @@ function gameEnd() {
                 playBtn.innerText = "Play Again"
                 playBtn.classList.add('active-play-btn')
 
-
+                userIcon.classList.add('user-win-shadow-active')
             }, 1000)
 
             gameScore = gameScore + 1;
@@ -305,12 +305,16 @@ function gameEnd() {
         case winState = -1:
             console.log("No")
 
+
+
             setTimeout(() => {
                 gameResult.innerText = "You Lose!"
                 gameResult.classList.add('active-result-text')
                 playBtn.innerText = "Play Again"
                 playBtn.classList.add('active-play-btn')
 
+
+                computerIcon.classList.add('computer-win-shadow-active')
             }, 1000)
 
 
@@ -334,6 +338,8 @@ function gameEnd() {
                 playBtn.innerText = "Play Again"
                 playBtn.classList.add('active-play-btn')
 
+                computerIcon.classList.add('computer-win-shadow-active')
+                userIcon.classList.add('user-win-shadow-active')
             }, 1000)
 
 

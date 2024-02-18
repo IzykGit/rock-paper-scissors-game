@@ -703,28 +703,46 @@ body {
 
 /* Winning Style */ 
 
-.rock-win-shadow {
-    box-shadow: 0px 5px 0px 3px hsl(349, 83%, 31%), 0px 5px 0px 3px hsl(43, 5%, 72%) inset, 0px 0px 0px 65px rgba(138, 138, 138, 0.1), 0px 3px 0px 125px rgba(109, 109, 109, 0.2), 0px 3px 0px 185px rgba(124, 124, 124, 0.1);
+
+.user-win-shadow {
+    opacity: 0;
+    z-index: -1;
 }
 
-
-.paper-win-shadow {
-    box-shadow: 0px 5px 0px 3px hsl(230, 74%, 35%), 0px 5px 0px 3px hsl(43, 5%, 72%) inset, 0px 0px 0px 65px rgba(138, 138, 138, 0.1), 0px 3px 0px 125px rgba(109, 109, 109, 0.2), 0px 3px 0px 185px rgba(124, 124, 124, 0.1);
+.computer-win-shadow {
+    opacity: 0;
+    z-index: -1;
 }
 
-
-.scissors-win-shadow {
-    box-shadow: 0px 5px 0px 3px hsl(39, 89%, 36%), 0px 5px 0px 3px hsl(43, 5%, 72%) inset, 0px 0px 0px 65px rgba(138, 138, 138, 0.1), 0px 3px 0px 125px rgba(109, 109, 109, 0.2), 0px 3px 0px 185px rgba(124, 124, 124, 0.1);
+.user-win-shadow-active {
+    opacity: 1;
+    z-index: -1;
+    border-radius: 100%;
+    animation-name: shadowWinAnimation;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
 }
 
-
-.lizard-win-shadow {
-    box-shadow: 0px 5px 0px 3px hsl(261, 76%, 26%), 0px 5px 0px 3px hsl(43, 5%, 72%) inset, 0px 0px 0px 65px rgba(138, 138, 138, 0.1), 0px 3px 0px 125px rgba(109, 109, 109, 0.2), 0px 3px 0px 185px rgba(124, 124, 124, 0.1);
+.computer-win-shadow-active {
+    z-index: -1;
+    border-radius: 100%;
+    animation-name: shadowWinAnimation;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
 }
 
-
-.spock-win-shadow {
-    box-shadow: 0px 5px 0px 3px hsl(189, 60%, 29%), 0px 5px 0px 3px hsl(43, 5%, 72%) inset, 0px 0px 0px 65px rgba(138, 138, 138, 0.1), 0px 3px 0px 125px rgba(109, 109, 109, 0.2), 0px 3px 0px 185px rgba(124, 124, 124, 0.1);
+@keyframes shadowWinAnimation {
+    0% {
+        box-shadow: 0px 00px 0px 80px rgba(119, 119, 119, 0.1);
+    }
+    50% {
+        box-shadow: 0px 00px 0px 80px rgb(119, 119, 119, 0.1), 0px 00px 0px 160px rgba(160, 160, 160, 0.1);
+    }
+    100% {
+        box-shadow: 0px 00px 0px 80px rgb(119, 119, 119, 0.1), 0px 00px 0px 160px rgba(160, 160, 160, 0.1), 0px 00px 0px 240px rgba(214, 214, 214, 0.1);
+    }
 }
 
 
@@ -735,7 +753,34 @@ body {
 /* Show Rules */ 
 
 .rules-container {
+    animation-name: closeRules;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    position: absolute;
+    z-index: 0;
+    width: 70%;
+    height: 80%;
+    background-color: white;
+    padding: 30px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     opacity: 0;
+}
+
+@keyframes closeRules {
+    from {
+        transform: translateY(0);
+        z-index: 6;
+        opacity: 1;
+
+    }
+    to {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
 }
 
 
