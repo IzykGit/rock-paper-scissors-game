@@ -129,12 +129,18 @@ let computerState = 0;
 let playerState = 0;
 let isActive = false;
 let winState = 0;
-let gameScore = 0;
+let gameScore = null;
 
 let gameValues = "";
 
 
+window.onbeforeunload = function() {
+    localStorage.setItem(score, gameScore)
+}
 
+window.onloadstart = function() {
+    gameScore = localStorage.getItem(score)
+}
 // Game
 
 
@@ -286,10 +292,11 @@ function gameEnd() {
                 playBtn.classList.add('active-play-btn')
 
 
-
-            }, 1500)
+            }, 1000)
 
             gameScore = gameScore + 1;
+
+
             score.innerText = gameScore
             break;
 
@@ -303,13 +310,16 @@ function gameEnd() {
                 gameResult.classList.add('active-result-text')
                 playBtn.innerText = "Play Again"
                 playBtn.classList.add('active-play-btn')
-            }, 1500)
+
+            }, 1000)
 
 
 
 
             gameScore = gameScore - 1;
-            console.log(gameScore)
+
+
+
             score.innerText = gameScore
             break;
 
@@ -324,8 +334,8 @@ function gameEnd() {
                 playBtn.innerText = "Play Again"
                 playBtn.classList.add('active-play-btn')
 
+            }, 1000)
 
-            }, 1500)
 
             break;
     }
