@@ -31,7 +31,6 @@ body {
 
     .main {
         width: 90%;
-        justify-content: start;
     }
 }
 
@@ -347,14 +346,13 @@ body {
     }
 
     .game-icons {
-        margin-bottom: 10px;
+        margin-bottom: 5px;
     }
 
     .game-icons > * {
         height: 45px;
         width: 45px;
         background-size: 40%;
-        margin: 3px;
     }
 
     .rockIcon {
