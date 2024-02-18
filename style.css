@@ -31,6 +31,7 @@ body {
     justify-content: space-between;
     padding: 20px;
     border-radius: 10px;
+    z-index: 2;
 }
 
 .score-container {
@@ -709,24 +710,16 @@ body {
     z-index: -1;
 }
 
-.user-win-shadow-active {
+.win-shadow-active {
     opacity: 1;
     z-index: -1;
     border-radius: 100%;
     animation-name: shadowWinAnimation;
-    animation-duration: 0.3s;
+    animation-duration: 0.5s;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
 }
 
-.computer-win-shadow-active {
-    z-index: -1;
-    border-radius: 100%;
-    animation-name: shadowWinAnimation;
-    animation-duration: 0.3s;
-    animation-timing-function: ease-out;
-    animation-fill-mode: forwards;
-}
 
 @keyframes shadowWinAnimation {
     0% {

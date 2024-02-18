@@ -292,7 +292,7 @@ function gameEnd() {
                 playBtn.classList.add('active-play-btn')
 
                 if(gameResult.innerText === "You Win!") {
-                    userIcon.classList.add('user-win-shadow-active')
+                    userIcon.classList.add('win-shadow-active')
                 }
 
             }, 1000)
@@ -317,7 +317,7 @@ function gameEnd() {
                 playBtn.classList.add('active-play-btn')
 
                 if(gameResult.innerText === "You Lose!") {
-                    computerIcon.classList.add('computer-win-shadow-active')
+                    computerIcon.classList.add('win-shadow-active')
                 }
 
             }, 1000)
@@ -345,8 +345,8 @@ function gameEnd() {
 
 
                 if(gameResult.innerText === "Tie!") {
-                    computerIcon.classList.add('computer-win-shadow-active')
-                    userIcon.classList.add('user-win-shadow-active')
+                    computerIcon.classList.add('win-shadow-active')
+                    userIcon.classList.add('win-shadow-active')
                 }
 
             }, 1000)
@@ -370,14 +370,14 @@ function resetGame() {
     computerIcon.classList.remove('scissors-selected')
     computerIcon.classList.remove('lizard-selected')
     computerIcon.classList.remove('spock-selected')
-    computerIcon.classList.remove('computer-win-shadow-active')
+    computerIcon.classList.remove('win-shadow-active')
 
     userIcon.classList.remove('scissors-selected');
     userIcon.classList.remove('paper-selected');
     userIcon.classList.remove('rock-selected');
     userIcon.classList.remove('lizard-selected');
     userIcon.classList.remove('spock-selected');
-    userIcon.classList.remove('user-win-shadow-active');
+    userIcon.classList.remove('win-shadow-active');
 
 
     gameResult.classList.remove('active-result-text');
