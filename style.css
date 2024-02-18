@@ -345,6 +345,10 @@ body {
         width: fit-content;
     }
 
+    .game-icons {
+        margin-bottom: 5px;
+    }
+
     .game-icons > * {
         height: 45px;
         width: 45px;
