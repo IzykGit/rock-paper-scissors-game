@@ -85,14 +85,22 @@ let userIcon = document.getElementById('user-icon')
 let score = document.getElementById('score')
 
 
+let lizardIcon = document.getElementById('lizardIcon');
+let spockIcon = document.getElementById('spockIcon')
+let paperIcon = document.getElementById('paperIcon')
+let rockIcon = document.getElementById('rockIcon')
+let scissorsIcon = document.getElementById('scissorsIcon')
 
+
+let selectText = document.getElementById('select-start')
+let selectScreen = document.getElementById('select-screen')
+let gameScreen = document.getElementById('game-screen')
 
 
 
 // Initial Classes 
 
-computerIcon.classList.add("unselected");
-userIcon.classList.add("unselected");
+
 
 
 playBtn.classList.add("result-btn-initial");
@@ -104,9 +112,36 @@ let isActive = false;
 let winState = 0;
 let gameScore = 0;
 
+let gameValues = "";
+
 
 
 // Game
+
+
+
+function initiateGame(value) {
+
+    selectText.classList.add('select-start-remove')
+    selectText.classList.remove('select-start')
+
+    lizardIcon.classList.add('lizardIcon-select')
+    spockIcon.classList.add('spockIcon-select')
+    rockIcon.classList.add('rockIcon-select')
+    paperIcon.classList.add('paperIcon-select')
+    scissorsIcon.classList.add('scissorsIcon-select')
+
+
+    setTimeout(() => {
+        selectScreen.classList.add('select-screen-remove')
+        gameScreen.classList.remove('game')
+        gameScreen.classList.add('add-game-screen')
+
+
+        computerIcon.classList.add("unselected");
+        playerSelect(value)
+    }, 2000)
+}
 
 
 
@@ -168,7 +203,11 @@ function playerSelect(value) {
     }
     
     console.log(playerState)
-    computerSelect()
+
+    setTimeout(() => {
+        computerSelect()
+    }, 2000);
+
     return isActive = true
 }
 
@@ -219,11 +258,17 @@ function gameEnd() {
     switch(winState) {
         case winState = 1:
             console.log("yes")
-            gameResult.innerText = "Winner"
-            gameResult.classList.add('active-result-text')
-            playBtn.innerText = "Play Again"
-            playBtn.classList.add('active-play-btn')
 
+
+            setTimeout(() => {
+                gameResult.innerText = "Winner"
+                gameResult.classList.add('active-result-text')
+                playBtn.innerText = "Play Again"
+                playBtn.classList.add('active-play-btn')
+
+
+
+            }, 1500)
 
             gameScore = gameScore + 1;
             score.innerText = gameScore
@@ -233,10 +278,14 @@ function gameEnd() {
 
         case winState = -1:
             console.log("No")
-            gameResult.innerText = "Loser"
-            gameResult.classList.add('active-result-text')
-            playBtn.innerText = "Play Again"
-            playBtn.classList.add('active-play-btn')
+
+            setTimeout(() => {
+                gameResult.innerText = "Loser"
+                gameResult.classList.add('active-result-text')
+                playBtn.innerText = "Play Again"
+                playBtn.classList.add('active-play-btn')
+            }, 1500)
+
 
 
 
@@ -249,12 +298,23 @@ function gameEnd() {
 
         case winState = 0:
             console.log("Eh")
-            gameResult.innerText = "Tie"
-            gameResult.classList.add('active-result-text')
-            playBtn.innerText = "Play Again"
-            playBtn.classList.add('active-play-btn')
+
+            setTimeout(() => {
+                gameResult.innerText = "Tie"
+                gameResult.classList.add('active-result-text')
+                playBtn.innerText = "Play Again"
+                playBtn.classList.add('active-play-btn')
+
+
+            }, 1500)
+
             break;
     }
+
+    setTimeout(() => {
+        gameScreen.classList.add("space-between")
+    }, 2000);
+
 }
 
 
@@ -277,8 +337,31 @@ function resetGame() {
 
     gameResult.classList.remove('active-result-text')
     playBtn.classList.remove('active-play-btn')
+
+    lizardIcon.classList.remove('lizardIcon-select')
+    spockIcon.classList.remove('spockIcon-select')
+    rockIcon.classList.remove('rockIcon-select')
+    paperIcon.classList.remove('paperIcon-select')
+    scissorsIcon.classList.remove('scissorsIcon-select')
+
+    selectScreen.classList.remove('select-screen-remove')
+
+
+    selectText.classList.add('select-start')
+    selectText.classList.remove('select-start-remove')
+
+
+
+
     computerIcon.classList.add("unselected");
     userIcon.classList.add("unselected");
+
+
+
+    gameScreen.classList.add("game")
+    selectScreen.classList.add("select-screen")
+
+
     playBtn.classList.add("result-btn-initial")
     gameResult.classList.add("result-text-inital")
 
@@ -294,12 +377,23 @@ function resetGame() {
 
 playBtn.addEventListener("click", () => resetGame())
 
-scissors.id.addEventListener("click", () => isActive ? console.log("Already selected") : playerSelect(scissors.value))
+scissors.id.addEventListener("click", () => isActive ? console.log("Already selected") : initiateGame(scissors.value))
 
-paper.id.addEventListener("click", () => isActive ? console.log("Already selected") : playerSelect(paper.value))
+paper.id.addEventListener("click", () => isActive ? console.log("Already selected") : initiateGame(paper.value))
 
-rock.id.addEventListener("click", () => isActive ? console.log("Already selected") : playerSelect(rock.value));
+rock.id.addEventListener("click", () => isActive ? console.log("Already selected") : initiateGame(rock.value));
 
-lizard.id.addEventListener("click", () => isActive ? console.log("Already selected") : playerSelect(lizard.value))
+lizard.id.addEventListener("click", () => isActive ? console.log("Already selected") : initiateGame(lizard.value))
 
-spock.id.addEventListener("click", () => isActive ? console.log("Already selected") : playerSelect(spock.value))
+spock.id.addEventListener("click", () => isActive ? console.log("Already selected") : initiateGame(spock.value))
+
+
+scissorsIcon.addEventListener("click", () => isActive ? console.log("Already selected") : initiateGame(scissors.value))
+
+paperIcon.addEventListener("click", () => isActive ? console.log("Already selected") : initiateGame(paper.value))
+
+rockIcon.addEventListener("click", () => isActive ? console.log("Already selected") : initiateGame(rock.value));
+
+lizardIcon.addEventListener("click", () => isActive ? console.log("Already selected") : initiateGame(lizard.value))
+
+spockIcon.addEventListener("click", () => isActive ? console.log("Already selected") : initiateGame(spock.value))
