@@ -874,6 +874,7 @@ body {
 
 .rules-container {
     opacity: 0;
+    position: absolute;
 }
 
 .rules-container-close {
