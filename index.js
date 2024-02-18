@@ -96,11 +96,30 @@ let selectText = document.getElementById('select-start')
 let selectScreen = document.getElementById('select-screen')
 let gameScreen = document.getElementById('game-screen')
 
+let rulesButton = document.getElementById('rules-button')
+let rules = document.getElementById('rules')
+
+let closeRules = document.getElementById('close-rules')
+
+
+
+
+
+// Rules Classes 
+
+rulesButton.addEventListener("click", () => {
+    rules.classList.remove('rules-container')
+    rules.classList.add('rules-container-open')
+})
+
+closeRules.addEventListener("click", () => {
+    rules.classList.remove('rules-container-open')
+    rules.classList.add('rules-container')
+})
+
 
 
 // Initial Classes 
-
-
 
 
 playBtn.classList.add("result-btn-initial");
