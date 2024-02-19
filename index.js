@@ -489,12 +489,6 @@ function gameEnd() {
                 gameScore = gameScore + 1;
                 score.innerText = gameScore
 
-                if((localStorage.getItem("playerScore") === null || localStorage.getItem("playerScore") === 0) && gameScore === 0) {
-                    return
-                } else {
-                    localStorage.setItem("playerScore", score.innerText)
-                }
-
             }, 500)
             break;
 
@@ -519,11 +513,6 @@ function gameEnd() {
                 gameScore = gameScore - 1;
                 score.innerText = gameScore
 
-                if((localStorage.getItem("playerScore") === null || localStorage.getItem("playerScore") === 0) && gameScore === 0) {
-                    return
-                } else {
-                    localStorage.setItem("playerScore", score.innerText)
-                }
 
             }, 500)
             break;
@@ -637,6 +626,11 @@ function resetGame() {
 
 
 
+    if((localStorage.getItem("playerScore") === null || localStorage.getItem("playerScore") === 0) && gameScore === 0) {
+        return
+    } else {
+        localStorage.setItem("playerScore", score.innerText)
+    }
 
 }
 
