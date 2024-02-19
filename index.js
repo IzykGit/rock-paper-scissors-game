@@ -160,27 +160,6 @@ let gameIsActive = false;
 
 
 
-// Saving and retrieving local data
-
-function getSavedScore() {
-
-
-    if(!(localStorage.getItem("playerScore") === null)) {
-        gameScore = localStorage.getItem("playerScore");
-        score.innerText = gameScore
-    }
-
-    else {  
-        score.innerText = 0
-    }
-
-
-}
-
-
-
-getSavedScore()
-
 
 
 
@@ -623,14 +602,6 @@ function resetGame() {
     gameIsActive = false;
     console.log('reset');
     console.clear()
-
-
-
-    if((localStorage.getItem("playerScore") === null || localStorage.getItem("playerScore") === 0) && gameScore === 0) {
-        return
-    } else {
-        localStorage.setItem("playerScore", score.innerText)
-    }
 
 }
 
