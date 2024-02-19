@@ -76,14 +76,26 @@ const outcomes = {
 
 
 
+// Result container elements and container itself
+
 let playBtn = document.getElementById('play-again')
 let gameResult = document.getElementById('game-result')
+let resultContainer = document.getElementById('result-container')
+
+// Setting user/computer icons and their containers
+
+let userIconContainer = document.getElementById('user-choice');
+let computerIconContainer = document.getElementById('computer-choice')
 
 let computerIcon = document.getElementById('computer-icon')
 let userIcon = document.getElementById('user-icon')
 
+
+
 let score = document.getElementById('score')
 
+
+// Different game icons
 
 let lizardIcon = document.getElementById('lizardIcon');
 let spockIcon = document.getElementById('spockIcon')
@@ -92,14 +104,20 @@ let rockIcon = document.getElementById('rockIcon')
 let scissorsIcon = document.getElementById('scissorsIcon')
 
 
+// Different game screens
+
 let selectText = document.getElementById('select-start')
 let selectScreen = document.getElementById('select-screen')
 let gameScreen = document.getElementById('game-screen')
 
+
+// Rules
+
 let rulesButton = document.getElementById('rules-button')
 let rules = document.getElementById('rules')
 
-let closeRules = document.getElementById('close-rules')
+
+
 
 
 
@@ -108,14 +126,19 @@ let closeRules = document.getElementById('close-rules')
 // Rules Classes 
 
 rulesButton.addEventListener("click", () => {
-    rules.classList.remove('rules-container')
-    rules.classList.add('rules-container-open')
+    console.log(rules.classList)
+
+    if(rules.classList.contains("rules-container-open")) {
+        rules.classList.remove("rules-container-open")
+        rules.classList.add("rules-container-close")
+    } else {
+
+        rules.classList.add('rules-container-open')
+        rules.classList.remove('rules-container-close')
+    }
+
 })
 
-closeRules.addEventListener("click", () => {
-    rules.classList.remove('rules-container-open')
-    rules.classList.add('rules-container-close')
-})
 
 
 
@@ -134,6 +157,27 @@ let gameScore = null;
 let gameValues = "";
 
 
+
+
+
+
+// Keeping track of the device's width
+
+
+
+let windowWidth = window.innerWidth;
+console.log(windowWidth)
+
+window.setInterval(async function() {
+    windowWidth = window.innerWidth
+    console.log(windowWidth)
+}, 2000)
+
+window.setInterval(async function() {
+    console.clear()
+}, 10000)
+
+
 window.onbeforeunload = function() {
     localStorage.setItem(score, gameScore)
 }
@@ -141,6 +185,16 @@ window.onbeforeunload = function() {
 window.onloadstart = function() {
     gameScore = localStorage.getItem(score)
 }
+
+
+
+
+
+
+
+
+
+
 // Game
 
 
@@ -158,12 +212,39 @@ function initiateGame(value) {
 
 
     setTimeout(() => {
-        selectScreen.classList.add('select-screen-remove')
-        gameScreen.classList.remove('game')
-        gameScreen.classList.add('add-game-screen')
 
 
-        computerIcon.classList.add("unselected");
+
+        // Setting classses for smaller screens
+
+        if(windowWidth < 1300) {
+            selectScreen.classList.add('select-screen-remove')
+
+            computerIcon.classList.add("unselected-small-active")
+            computerIconContainer.classList.add('icon-container-small')
+
+
+            gameScreen.classList.remove('game')
+            gameScreen.classList.add('small-screen-game-active')
+
+            rulesButton.classList.add('disable-rules')
+
+        }
+
+        
+        // Default classes for larger screen sizes
+        else {
+
+            selectScreen.classList.add('select-screen-remove')
+            gameScreen.classList.remove('game')
+            gameScreen.classList.add('add-game-screen')
+    
+            computerIcon.classList.add("unselected");
+
+            rulesButton.classList.add('disable-rules')
+        }
+
+
         playerSelect(value)
     }, 2000)
 }
@@ -172,60 +253,149 @@ function initiateGame(value) {
 
 function computerSelect() {
     computerState = Math.floor(Math.random() * (5 - 1 + 1) + 1)
-    switch(computerState) {
-        case computerState = 1:
-            computerIcon.classList.add("rock-selected")
-            computerState = "rock"
-            break;
-        case computerState = 2:
-            computerIcon.classList.add("paper-selected")
-            computerState = "paper"
-            break;
-        case computerState = 3:
-            computerIcon.classList.add("scissors-selected")
-            computerState = "scissors"
-            break;
-        case value = 4:
-            computerIcon.classList.add('lizard-selected')
-            computerState = "lizard";
-            break;
-        case value = 5:
-            computerIcon.classList.add('spock-selected')
-            computerState = "spock";
-            break;
+
+
+    // Displaying chosen computer icon when screen width is under 1300
+
+    if(windowWidth < 1300) {
+
+        computerIconContainer.classList.remove('unselected-small-unactive')
+
+
+        setTimeout(() => {
+            switch(computerState) {
+                case computerState = 1:
+                    computerIcon.classList.add("rock-selected-small")
+                    computerState = "rock"
+                    break;
+                case computerState = 2:
+                    computerIcon.classList.add("paper-selected-small")
+                    computerState = "paper"
+                    break;
+                case computerState = 3:
+                    computerIcon.classList.add("scissors-selected-small")
+                    computerState = "scissors"
+                    break;
+                case value = 4:
+                    computerIcon.classList.add('lizard-selected-small')
+                    computerState = "lizard";
+                    break;
+                case value = 5:
+                    computerIcon.classList.add('spock-selected-small')
+                    computerState = "spock";
+                    break;
+            }
+
+            setTimeout(() => {
+                startGame()
+            }, 1500);
+
+        }, 1000)
+
     }
 
-    startGame()
+
+
+    else {
+
+        // Default Icon Sizes
+
+        switch(computerState) {
+            case computerState = 1:
+                computerIcon.classList.add("rock-selected")
+                computerState = "rock"
+                break;
+            case computerState = 2:
+                computerIcon.classList.add("paper-selected")
+                computerState = "paper"
+                break;
+            case computerState = 3:
+                computerIcon.classList.add("scissors-selected")
+                computerState = "scissors"
+                break;
+            case value = 4:
+                computerIcon.classList.add('lizard-selected')
+                computerState = "lizard";
+                break;
+            case value = 5:
+                computerIcon.classList.add('spock-selected')
+                computerState = "spock";
+                break;
+        }
+        
+        startGame()
+    }
+
+
+
 }
 
 
 
 function playerSelect(value) {
 
-    
-    switch(value) {
 
-        case value = scissors.value:
-            userIcon.classList.add('scissors-selected')
-            playerState = "scissors";
-            break;
-        case value = paper.value:
-            userIcon.classList.add('paper-selected')
-            playerState = "paper";
-            break;
-        case value = rock.value:
-            userIcon.classList.add('rock-selected')
-            playerState = "rock";
-            break;
-        case value = lizard.value:
-            userIcon.classList.add('lizard-selected')
-            playerState = "lizard";
-            break;
-        case value = spock.value:
-            userIcon.classList.add('spock-selected')
-            playerState = "spock";
-            break;
+    // Assigning Small Icons
+
+    if(windowWidth < 1300) {
+
+
+        userIconContainer.classList.add('icon-container-small')
+
+        switch(value) {
+
+            case value = scissors.value:
+                userIcon.classList.add('scissors-selected-small')
+                playerState = "scissors";
+                break;
+            case value = paper.value:
+                userIcon.classList.add('paper-selected-small')
+                playerState = "paper";
+                break;
+            case value = rock.value:
+                userIcon.classList.add('rock-selected-small')
+                playerState = "rock";
+                break;
+            case value = lizard.value:
+                userIcon.classList.add('lizard-selected-small')
+                playerState = "lizard";
+                break;
+            case value = spock.value:
+                userIcon.classList.add('spock-selected-small')
+                playerState = "spock";
+                break;
+        }
     }
+
+    else {
+
+        // Default Icon Sizes
+
+        switch(value) {
+
+            case value = scissors.value:
+                userIcon.classList.add('scissors-selected')
+                playerState = "scissors";
+                break;
+            case value = paper.value:
+                userIcon.classList.add('paper-selected')
+                playerState = "paper";
+                break;
+            case value = rock.value:
+                userIcon.classList.add('rock-selected')
+                playerState = "rock";
+                break;
+            case value = lizard.value:
+                userIcon.classList.add('lizard-selected')
+                playerState = "lizard";
+                break;
+            case value = spock.value:
+                userIcon.classList.add('spock-selected')
+                playerState = "spock";
+                break;
+        }
+    }
+    
     
     console.log(playerState)
 
@@ -294,13 +464,13 @@ function gameEnd() {
                 if(gameResult.innerText === "You Win!") {
                     userIcon.classList.add('win-shadow-active')
                 }
-
+                gameScore = gameScore + 1;
+                score.innerText = gameScore
             }, 1000)
 
-            gameScore = gameScore + 1;
 
 
-            score.innerText = gameScore
+
             break;
 
 
@@ -319,17 +489,13 @@ function gameEnd() {
                 if(gameResult.innerText === "You Lose!") {
                     computerIcon.classList.add('win-shadow-active')
                 }
-
+                gameScore = gameScore - 1;
+                score.innerText = gameScore
             }, 1000)
 
 
 
 
-            gameScore = gameScore - 1;
-
-
-
-            score.innerText = gameScore
             break;
 
 
@@ -390,6 +556,10 @@ function resetGame() {
     scissorsIcon.classList.remove('scissorsIcon-select');
 
     selectScreen.classList.remove('select-screen-remove');
+
+
+    rulesButton.classList.remove('disable-rules');
+    rules.classList.add("enable-rules")
 
 
     selectText.classList.add('select-start');

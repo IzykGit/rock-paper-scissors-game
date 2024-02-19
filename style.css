@@ -26,18 +26,18 @@ body {
 }
 
 @media screen and (max-width: 1600px) {
-    body {
-        justify-content: flex-start;
-    }
+
 
     .main {
         width: 90%;
+        height: 84%;
+        justify-content: start;
     }
 }
 
 @media screen and (max-width: 600px) {
     .main {
-        height: 84%
+        height: 80%
     }
 }
 
@@ -76,6 +76,7 @@ body {
     margin: 0;
     margin-bottom: 15px;
     color: hsl(229, 25%, 31%);
+    transition: 0.2s;
 }
 
 
@@ -131,6 +132,15 @@ body {
         font-size: 25px;
     }
 }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -380,30 +390,12 @@ body {
 
 
 
-.footer {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
 
-.footer > button {
-    padding: 10px 30px 10px 30px;
-    border-radius: 10px;
-    background-color: transparent;
-    border: 1px solid white;
-    color: white;
-    letter-spacing: 2px;
-    font-weight: 600;
-    transition: 0.2s;
-    cursor: pointer;
-}
 
-.footer > button:hover {
-    padding: 10px 50px 10px 50px;
 
-}
+
+
+
 
 
 
@@ -520,6 +512,10 @@ body {
 
 
 
+
+
+
+
 /* Game section after selection */
 
 
@@ -537,14 +533,10 @@ body {
 }
 
 
-@media screen and (max-width: 1500px) {
-    
-}
-
 .game {
     display: none;
     visibility: hidden;
-}   
+}
 
 
 .result-container {
@@ -557,6 +549,10 @@ body {
     z-index: 2;
 }
 
+
+
+
+
 .result-container > button {
     transition: 0.2s ease-in-out;
 }
@@ -565,9 +561,6 @@ body {
     transform: scale(1.1);
     cursor: pointer;
 }
-
-
-
 
 
 
@@ -601,7 +594,12 @@ body {
 
 
 
+
+
+
+
 /* User initial state */
+
 
 
 .user-choice {
@@ -629,6 +627,7 @@ body {
     box-shadow: 0px 5px 0px 3px #131c33;
 }
 
+
 .computer-choice {
     display: flex;
     flex-direction: column;
@@ -647,16 +646,15 @@ body {
     letter-spacing: 5px;
 }
 
-.computer-choice > img {
-    width: 150px;
-    padding: 50px;
-    background-color: white;
-    border-radius: 100%;
-    border: 30px solid hsl(40, 84%, 53%);
-    box-shadow: 0px 5px 0px 3px hsl(39, 89%, 36%), 0px 5px 0px 3px hsl(43, 5%, 72%) inset;
+
+
+
+
+@media screen and (max-width: 1900px) {
+    #game-result {
+        font-size: 25px;
+    }
 }
-
-
 
 
 
@@ -716,6 +714,14 @@ body {
         transform: scale(1);
     }
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -846,7 +852,6 @@ body {
 .win-shadow-active {
     opacity: 1;
     z-index: -1;
-    border-radius: 100%;
     animation-name: shadowWinAnimation;
     animation-duration: 0.5s;
     animation-timing-function: ease-out;
@@ -873,6 +878,35 @@ body {
 
 /* Show Rules */ 
 
+
+
+.footer {
+    margin-top: 40px;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+}
+
+.footer > button {
+    padding: 10px 30px 10px 30px;
+    border-radius: 10px;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    letter-spacing: 2px;
+    font-weight: 600;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.footer > button:hover {
+    padding: 10px 50px 10px 50px;
+
+}
+
+
 .rules-container {
     opacity: 0;
     position: absolute;
@@ -882,6 +916,8 @@ body {
     animation-name: closeRules;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
+
+    margin-top: 10px;
     position: absolute;
     z-index: 0;
     width: 70%;
@@ -923,6 +959,7 @@ body {
 
 
 .rules-container-open {
+    margin-top: 10px;
     position: absolute;
     z-index: 6;
     width: 70%;
@@ -953,20 +990,163 @@ body {
 }
 
 
-#close-rules {
-    padding: 10px 30px 10px 30px;
-    border-radius: 10px;
-    background-color: whitesmoke;
-    box-shadow: 0px 1px 0px 0px hsl(217, 16%, 45%);
-    border: none;
-    color: hsl(229, 25%, 31%);
-    letter-spacing: 2px;
-    font-weight: 600;
-    transform: scale(1.1);
-    transition: 0.2s;
+
+.disable-rules {
+    display: none;
 }
 
-#close-rules:hover {
-    cursor: pointer;
-    padding: 10px 50px 10px 50px;
+
+.enable-rules {
+    position: absolute;
+    z-index: 6;
+    width: 70%;
+    height: 80%;
+    background-color: white;
+    padding: 30px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+}
+
+
+
+
+
+
+
+
+
+
+/* Game for smaller screens */
+
+
+.small-screen-game-active {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    height: 500px;
+    margin: 50px;
+}
+
+.unselected-small-active {
+    width: 75px;
+    height: 75px;
+    border-radius: 100%;
+    background-color: #17223e;
+    box-shadow: 0px 5px 0px 3px #131c33;
+}
+
+
+.unselected-small-unactive {
+    display: none;
+}
+
+
+
+.icon-container-small {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+/* Scissors Small Active State */
+
+.scissors-selected-small {
+    width: 75px;
+    height: 75px;
+    border-radius: 100%;
+    background-color: white;
+    position: relative;
+    box-shadow: 0px 5px 0px 3px hsl(39, 89%, 36%), 0px 5px 0px 3px hsl(43, 5%, 72%) inset;
+    border: 10px solid hsl(40, 84%, 53%);
+    background-image: url("./images/icon-scissors.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+
+}
+
+
+
+
+
+/* Paper Small Active State */
+
+.paper-selected-small {
+    width: 75px;
+    height: 75px;
+    border-radius: 100%;
+    background-color: white;
+    box-shadow: 0px 5px 0px 3px hsl(230, 74%, 35%), 0px 5px 0px 3px hsl(43, 5%, 72%) inset;
+    border: 10px solid hsl(230, 80%, 53%);
+    background-image: url("./images/icon-paper.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+
+}
+
+
+
+
+/* Rock Small Active State */ 
+
+.rock-selected-small {
+    width: 75px;
+    height: 75px;
+    border-radius: 100%;
+    background-color: white;
+    box-shadow: 0px 5px 0px 3px hsl(349, 83%, 31%), 0px 5px 0px 3px hsl(43, 5%, 72%) inset;
+    border: 10px solid hsl(349, 98%, 41%);
+    background-image: url("./images/icon-rock.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+
+}
+
+
+
+/* Lizard Small Active State */ 
+
+.lizard-selected-small {
+    width: 75px;
+    height: 75px;
+    border-radius: 100%;
+    background-color: white;
+    position: relative;
+    box-shadow: 0px 5px 0px 3px hsl(261, 76%, 26%), 0px 5px 0px 3px hsl(43, 5%, 72%) inset;
+    border: 10px solid hsl(261, 69%, 48%);
+    background-image: url("./images/icon-lizard.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+
+}
+
+
+/* Spock Small Active State */
+
+.spock-selected-small {
+    width: 75px;
+    height: 75px;
+    border-radius: 100%;
+    background-color: white;
+    box-shadow: 0px 5px 0px 3px hsl(189, 60%, 29%), 0px 5px 0px 3px hsl(43, 5%, 72%) inset;
+    border: 10px solid hsl(189, 59%, 53%);
+    background-image: url("./images/icon-spock.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+
 }
