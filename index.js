@@ -187,18 +187,7 @@ getSavedScore()
 
 
 let windowWidth = window.innerWidth;
-console.log(windowWidth)
 
-window.setInterval(async function() {
-    windowWidth = window.innerWidth
-    console.log(windowWidth)
-}, 2000)
-
-window.setInterval(async function() {
-    console.clear()
-
-
-}, 10000)
 
 
 
@@ -230,7 +219,8 @@ function initiateGame(value) {
     rockIcon.classList.add('rockIcon-select')
     paperIcon.classList.add('paperIcon-select')
     scissorsIcon.classList.add('scissorsIcon-select')
-
+    rules.classList.add('disable-rules')
+    rulesButton.classList.add('disable-rules')
 
     setTimeout(() => {
 
@@ -248,7 +238,6 @@ function initiateGame(value) {
             gameScreen.classList.remove('game')
             gameScreen.classList.add('small-screen-game-active')
 
-            rulesButton.classList.add('disable-rules')
 
         }
 
@@ -262,7 +251,6 @@ function initiateGame(value) {
     
             computerIcon.classList.add("unselected");
 
-            rulesButton.classList.add('disable-rules')
         }
 
 
@@ -422,7 +410,7 @@ function playerSelect(value) {
 
     setTimeout(() => {
         computerSelect()
-    }, 2000);
+    }, 1000);
 
     return isActive = true
 }
@@ -488,9 +476,8 @@ function gameEnd() {
 
                 gameScore = gameScore + 1;
 
-                localStorage.setItem("playerScore", gameScore)
                 score.innerText = gameScore
-            }, 1000)
+            }, 500)
             break;
 
 
@@ -512,9 +499,9 @@ function gameEnd() {
 
 
                 gameScore = gameScore - 1;
-                localStorage.setItem("playerScore", gameScore)
+
                 score.innerText = gameScore
-            }, 1000)
+            }, 500)
             break;
 
 
@@ -534,14 +521,14 @@ function gameEnd() {
                     userIcon.classList.add('win-shadow-active')
                 }
 
-            }, 1000)
+            }, 500)
             break;
     }
 
     setTimeout(() => {
         gameScreen.classList.add("space-between")
-
-    }, 2000);
+        localStorage.setItem("playerScore", gameScore)
+    }, 1000);
 
 }
 
@@ -591,6 +578,7 @@ function resetGame() {
 
 
     rulesButton.classList.remove('disable-rules');
+    rules.classList.remove('disable-rules')
 
 
 
@@ -621,7 +609,7 @@ function resetGame() {
     winState = 0;
 
     console.log('reset');
-
+    console.clear()
 }
 
 

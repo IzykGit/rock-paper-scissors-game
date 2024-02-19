@@ -1011,11 +1011,12 @@ body {
 
 
 .disable-rules {
-    display: none;
+    visibility: hidden;
 }
 
 
 .enable-rules {
+    visibility: visible;
     position: absolute;
     z-index: 6;
     width: 70%;
