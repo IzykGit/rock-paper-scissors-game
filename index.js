@@ -152,9 +152,15 @@ let computerState = 0;
 let playerState = 0;
 let isActive = false;
 let winState = 0;
-let gameScore = null;
+let gameScore = 0;
+
 
 let gameValues = "";
+
+
+
+
+
 
 
 
@@ -175,16 +181,16 @@ window.setInterval(async function() {
 
 window.setInterval(async function() {
     console.clear()
+
+
 }, 10000)
 
 
-window.onbeforeunload = function() {
-    localStorage.setItem(score, gameScore)
-}
 
-window.onloadstart = function() {
-    gameScore = localStorage.getItem(score)
-}
+
+
+
+
 
 
 
@@ -438,7 +444,7 @@ function startGame() {
     else if (gameValues.includes(outcomes.tie.paper) || gameValues.includes(outcomes.tie.rock) || gameValues.includes(outcomes.tie.scissors)
     || gameValues.includes(outcomes.tie.lizard) || gameValues.includes(outcomes.tie.spock)) {
         console.log("Tie")
-        winState = 0
+        winState = 2
         gameEnd()
         return
     }
@@ -464,13 +470,10 @@ function gameEnd() {
                 if(gameResult.innerText === "You Win!") {
                     userIcon.classList.add('win-shadow-active')
                 }
+
                 gameScore = gameScore + 1;
                 score.innerText = gameScore
             }, 1000)
-
-
-
-
             break;
 
 
@@ -489,18 +492,16 @@ function gameEnd() {
                 if(gameResult.innerText === "You Lose!") {
                     computerIcon.classList.add('win-shadow-active')
                 }
+
+
                 gameScore = gameScore - 1;
                 score.innerText = gameScore
             }, 1000)
-
-
-
-
             break;
 
 
 
-        case winState = 0:
+        case winState = 2:
             console.log("Eh")
 
             setTimeout(() => {
@@ -516,8 +517,6 @@ function gameEnd() {
                 }
 
             }, 1000)
-
-
             break;
     }
 
@@ -544,6 +543,20 @@ function resetGame() {
     userIcon.classList.remove('lizard-selected');
     userIcon.classList.remove('spock-selected');
     userIcon.classList.remove('win-shadow-active');
+
+    computerIcon.classList.remove('rock-selected-small')
+    computerIcon.classList.remove('paper-selected-small')
+    computerIcon.classList.remove('scissors-selected-small')
+    computerIcon.classList.remove('lizard-selected-small')
+    computerIcon.classList.remove('spock-selected-small')
+    computerIcon.classList.remove('win-shadow-active-small')
+
+    userIcon.classList.remove('scissors-selected-small');
+    userIcon.classList.remove('paper-selected-small');
+    userIcon.classList.remove('rock-selected-small');
+    userIcon.classList.remove('lizard-selected-small');
+    userIcon.classList.remove('spock-selected-small');
+    userIcon.classList.remove('win-shadow-active-small');
 
 
     gameResult.classList.remove('active-result-text');
@@ -589,6 +602,7 @@ function resetGame() {
     winState = 0;
 
     console.log('reset');
+
 }
 
 
