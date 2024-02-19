@@ -557,6 +557,31 @@ body {
 }
 
 
+@media screen and (max-height: 800px) {
+    .result-container {
+        height: 100px;
+        padding: 0;
+    }
+
+    .result-container > * {
+        margin: 0;
+    }
+
+    .result-container > p {
+        font-size: 13px;
+    }
+
+    .result-container > button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 13px;
+        height: 15px;
+    }
+}
+
+
 
 
 
@@ -1050,6 +1075,7 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 
 
 
