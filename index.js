@@ -152,7 +152,7 @@ let computerState = 0;
 let playerState = 0;
 let winState = 0;
 let gameScore = 0;
-score.innerText = gameScore
+score.innerText = gameScore;
 
 let gameValues = "";
 
@@ -610,15 +610,15 @@ function resetGame() {
 
 playBtn.addEventListener("click", () => resetGame())
 
-scissors.id.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(scissors.value))
+// scissors.id.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(scissors.value))
 
-paper.id.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(paper.value))
+// paper.id.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(paper.value))
 
-rock.id.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(rock.value));
+// rock.id.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(rock.value));
 
-lizard.id.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(lizard.value))
+// lizard.id.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(lizard.value))
 
-spock.id.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(spock.value))
+// spock.id.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(spock.value))
 
 
 scissorsIcon.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(scissors.value))
