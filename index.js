@@ -154,9 +154,24 @@ let isActive = false;
 let winState = 0;
 let gameScore = 0;
 
-
 let gameValues = "";
 
+
+
+// Saving and retrieving local data
+
+function getSavedScore() {
+    if(!(localStorage.getItem("playerScore") === null)) {
+        gameScore = localStorage.getItem("playerScore");
+        score.innerText = gameScore
+    }
+
+    else {  
+        score.innerText = 0
+    }
+}
+
+getSavedScore()
 
 
 
@@ -472,6 +487,8 @@ function gameEnd() {
                 }
 
                 gameScore = gameScore + 1;
+
+                localStorage.setItem("playerScore", gameScore)
                 score.innerText = gameScore
             }, 1000)
             break;
@@ -495,6 +512,7 @@ function gameEnd() {
 
 
                 gameScore = gameScore - 1;
+                localStorage.setItem("playerScore", gameScore)
                 score.innerText = gameScore
             }, 1000)
             break;
@@ -522,6 +540,7 @@ function gameEnd() {
 
     setTimeout(() => {
         gameScreen.classList.add("space-between")
+
     }, 2000);
 
 }
