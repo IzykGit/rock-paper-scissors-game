@@ -152,6 +152,7 @@ let computerState = 0;
 let playerState = 0;
 let winState = 0;
 let gameScore = 0;
+score.innerText = gameScore
 
 let gameValues = "";
 
