@@ -559,7 +559,7 @@ function resetGame() {
 
 
     rulesButton.classList.remove('disable-rules');
-    rules.classList.add("enable-rules")
+
 
 
     selectText.classList.add('select-start');
