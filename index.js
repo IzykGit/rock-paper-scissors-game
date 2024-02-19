@@ -571,6 +571,7 @@ function resetGame() {
     computerIcon.classList.add('unselected');
     userIcon.classList.add('unselected');
 
+    gameScreen.classList.remove('small-screen-game-active')
 
 
 
