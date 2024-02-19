@@ -310,37 +310,37 @@ body {
 
 @media screen and (max-width: 1000px) {
     .select-screen {
-        height: 90%;
+        height: 50%;
     }
 
     .game-icons > * {
-        height: 75px;
-        width: 75px;
+        height: 50px;
+        width: 50px;
         background-size: 50%;
     }
 
     .rockIcon {
-        border: 10px solid hsl(349, 98%, 41%);
+        border: 8px solid hsl(349, 98%, 41%);
     }
 
     .paperIcon {
-        border: 10px solid hsl(230, 80%, 53%);
+        border: 8px solid hsl(230, 80%, 53%);
     }
 
     .scissorsIcon {
-        border: 10px solid hsl(40, 84%, 53%);
+        border: 8px solid hsl(40, 84%, 53%);
     }
 
     .lizardIcon {
-        border: 10px solid hsl(261, 69%, 48%);
+        border: 8px solid hsl(261, 69%, 48%);
     }
 
     .spockIcon {
-        border: 10px solid hsl(189, 59%, 53%);
+        border: 8px solid hsl(189, 59%, 53%);
     }
 
     .select-start {
-        margin-bottom: 10px;
+        margin-bottom: 5px;
     }
 }
 
@@ -1014,6 +1014,9 @@ body {
 
 
 
+
+
+
 /* Game for smaller screens */
 
 
@@ -1023,13 +1026,12 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 90%;
-    height: 500px;
-    margin: 50px;
+    height: 400px;
 }
 
 .unselected-small-active {
-    width: 75px;
-    height: 75px;
+    width: 50px;
+    height: 50px;
     border-radius: 100%;
     background-color: #17223e;
     box-shadow: 0px 5px 0px 3px #131c33;
@@ -1056,13 +1058,13 @@ body {
 /* Scissors Small Active State */
 
 .scissors-selected-small {
-    width: 75px;
-    height: 75px;
+    width: 50px;
+    height: 50px;
     border-radius: 100%;
     background-color: white;
     position: relative;
-    box-shadow: 0px 5px 0px 3px hsl(39, 89%, 36%), 0px 5px 0px 3px hsl(43, 5%, 72%) inset;
-    border: 10px solid hsl(40, 84%, 53%);
+    box-shadow: 0px 3px 0px 1px hsl(39, 89%, 36%), 0px 3px 0px 1px hsl(43, 5%, 72%) inset;
+    border: 8px solid hsl(40, 84%, 53%);
     background-image: url("./images/icon-scissors.svg");
     background-repeat: no-repeat;
     background-position: center;
@@ -1077,12 +1079,12 @@ body {
 /* Paper Small Active State */
 
 .paper-selected-small {
-    width: 75px;
-    height: 75px;
+    width: 50px;
+    height: 50px;
     border-radius: 100%;
     background-color: white;
-    box-shadow: 0px 5px 0px 3px hsl(230, 74%, 35%), 0px 5px 0px 3px hsl(43, 5%, 72%) inset;
-    border: 10px solid hsl(230, 80%, 53%);
+    box-shadow: 0px 3px 0px 1px hsl(230, 74%, 35%), 0px 3px 0px 1px hsl(43, 5%, 72%) inset;
+    border: 8px solid hsl(230, 80%, 53%);
     background-image: url("./images/icon-paper.svg");
     background-repeat: no-repeat;
     background-position: center;
@@ -1096,12 +1098,12 @@ body {
 /* Rock Small Active State */ 
 
 .rock-selected-small {
-    width: 75px;
-    height: 75px;
+    width: 50px;
+    height: 50px;
     border-radius: 100%;
     background-color: white;
-    box-shadow: 0px 5px 0px 3px hsl(349, 83%, 31%), 0px 5px 0px 3px hsl(43, 5%, 72%) inset;
-    border: 10px solid hsl(349, 98%, 41%);
+    box-shadow: 0px 3px 0px 1px hsl(349, 83%, 31%), 0px 3px 0px 1px hsl(43, 5%, 72%) inset;
+    border: 8px solid hsl(349, 98%, 41%);
     background-image: url("./images/icon-rock.svg");
     background-repeat: no-repeat;
     background-position: center;
@@ -1114,13 +1116,13 @@ body {
 /* Lizard Small Active State */ 
 
 .lizard-selected-small {
-    width: 75px;
-    height: 75px;
+    width: 50px;
+    height: 50px;
     border-radius: 100%;
     background-color: white;
     position: relative;
-    box-shadow: 0px 5px 0px 3px hsl(261, 76%, 26%), 0px 5px 0px 3px hsl(43, 5%, 72%) inset;
-    border: 10px solid hsl(261, 69%, 48%);
+    box-shadow: 0px 3px 0px 1px hsl(261, 76%, 26%), 0px 3px 0px 1px hsl(43, 5%, 72%) inset;
+    border: 8px solid hsl(261, 69%, 48%);
     background-image: url("./images/icon-lizard.svg");
     background-repeat: no-repeat;
     background-position: center;
@@ -1132,12 +1134,12 @@ body {
 /* Spock Small Active State */
 
 .spock-selected-small {
-    width: 75px;
-    height: 75px;
+    width: 50px;
+    height: 50px;
     border-radius: 100%;
     background-color: white;
-    box-shadow: 0px 5px 0px 3px hsl(189, 60%, 29%), 0px 5px 0px 3px hsl(43, 5%, 72%) inset;
-    border: 10px solid hsl(189, 59%, 53%);
+    box-shadow: 0px 3px 0px 1px hsl(189, 60%, 29%), 0px 3px 0px 1px hsl(43, 5%, 72%) inset;
+    border: 8px solid hsl(189, 59%, 53%);
     background-image: url("./images/icon-spock.svg");
     background-repeat: no-repeat;
     background-position: center;
