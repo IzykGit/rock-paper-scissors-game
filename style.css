@@ -62,6 +62,7 @@ body {
     letter-spacing: 2px;
     margin-bottom: 0px;
     color: hsl(229, 64%, 46%);
+    cursor: default;
 }
 
 .score {
@@ -71,6 +72,7 @@ body {
     margin-bottom: 15px;
     color: hsl(229, 25%, 31%);
     transition: 0.2s;
+    cursor: default;
 }
 
 
@@ -93,11 +95,11 @@ body {
     cursor: default;
 }
 
-/* .options > *:hover {
+.options > *:hover {
     color: rgb(190, 166, 114);
     cursor: pointer;
     transform: scale(1.1);
-} */
+} 
 
 
 @media screen and (max-width: 600px) {
