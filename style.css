@@ -34,11 +34,6 @@ body {
     }
 }
 
-@media screen and (max-width: 600px) {
-    .main {
-        height: 80%
-    }
-}
 
 .options-score {
     border: 1px solid rgb(148, 148, 148);
