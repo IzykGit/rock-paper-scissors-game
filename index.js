@@ -188,32 +188,32 @@ window.addEventListener("load", () => {
 
 
 
+const addGameChoiceListener = (element, value) => {
+    const handler = () => gameIsActive ? console.log("Already selected") : initiateGame(value);
+    element.addEventListener("click", handler);
+    element.addEventListener("touchstart", handler);
+};
+
+
+// Normal Icon Event Listeners
+
+addGameChoiceListener(rock.id, rock.value)
+addGameChoiceListener(scissors.id, scissors.value);
+addGameChoiceListener(paper.id, paper.value);
+addGameChoiceListener(lizard.id, lizard.value);
+addGameChoiceListener(spock.id, spock.value)
+
+
+// Small Icon Event Listeners
+
+addGameChoiceListener(rockIcon, rock.value)
+addGameChoiceListener(scissorsIcon, scissors.value);
+addGameChoiceListener(paperIcon, paper.value);
+addGameChoiceListener(lizardIcon, lizard.value);
+addGameChoiceListener(spockIcon, spock.value)
 
 
 
-
-// For starting the game
-
-scissors.id.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(scissors.value))
-
-paper.id.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(paper.value))
-
- rock.id.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(rock.value));
-
- lizard.id.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(lizard.value))
-
-spock.id.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(spock.value))
-
-
-scissorsIcon.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(scissors.value))
-
-paperIcon.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(paper.value))
-
-rockIcon.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(rock.value));
-
-lizardIcon.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(lizard.value))
-
-spockIcon.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(spock.value))
 
 
 
