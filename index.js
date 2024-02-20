@@ -152,7 +152,7 @@ let computerState = 0;
 let playerState = 0;
 let winState = 0;
 let gameScore = 0;
-
+score.innerText = gameScore
 
 let gameValues = "";
 
@@ -163,38 +163,20 @@ let gameIsActive = false;
 
 
 
-// Save Feature
 
-function getSavedData() {
-    if(!(localStorage.getItem("playerScore") === null)) {
-        gameScore = localStorage.getItem("playerScore")
-        score.innerHTML = gameScore.toString()
-    }
-
-    else {
-        score.innerText = 0
-    }
-
-
-}
-
-getSavedData()
 
 
 
 
 // Keeping track of the device's width
 
+let windowWidth ;
 
 
-let windowWidth = window.innerWidth;
-
-
-
-
-
-
-
+window.addEventListener("load", () => {
+    windowWidth = window.innerWidth
+    console.log("The window width is:", windowWidth)
+})
 
 
 
@@ -203,6 +185,36 @@ let windowWidth = window.innerWidth;
 
 
 
+
+
+
+
+
+
+
+
+// For starting the game
+
+scissors.id.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(scissors.value))
+
+paper.id.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(paper.value))
+
+ rock.id.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(rock.value));
+
+ lizard.id.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(lizard.value))
+
+spock.id.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(spock.value))
+
+
+scissorsIcon.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(scissors.value))
+
+paperIcon.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(paper.value))
+
+rockIcon.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(rock.value));
+
+lizardIcon.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(lizard.value))
+
+spockIcon.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(spock.value))
 
 
 
@@ -223,7 +235,14 @@ function initiateGame(value) {
     rules.classList.add('disable-rules')
     rulesButton.classList.add('disable-rules')
 
-    gameIsActive = true;
+    gameIsActive = true
+
+    // Winstate check
+
+    if(winState !== 0) {
+        winState = 0
+        console.log("Starting winState is:", winState)
+    }
 
 
     setTimeout(() => {
@@ -247,6 +266,7 @@ function initiateGame(value) {
 
         
         // Default classes for larger screen sizes
+
         else {
 
             selectScreen.classList.add('select-screen-remove')
@@ -264,93 +284,17 @@ function initiateGame(value) {
 
 
 
-function computerSelect() {
-    computerState = Math.floor(Math.random() * (5 - 1 + 1) + 1)
-
-
-    // Displaying chosen computer icon when screen width is under 1300
-
-    if(windowWidth < 1300) {
-
-        computerIconContainer.classList.remove('unselected-small-unactive')
-
-
-        setTimeout(() => {
-            switch(computerState) {
-                case computerState = 1:
-                    computerIcon.classList.add("rock-selected-small")
-                    computerState = "rock"
-                    break;
-                case computerState = 2:
-                    computerIcon.classList.add("paper-selected-small")
-                    computerState = "paper"
-                    break;
-                case computerState = 3:
-                    computerIcon.classList.add("scissors-selected-small")
-                    computerState = "scissors"
-                    break;
-                case value = 4:
-                    computerIcon.classList.add('lizard-selected-small')
-                    computerState = "lizard";
-                    break;
-                case value = 5:
-                    computerIcon.classList.add('spock-selected-small')
-                    computerState = "spock";
-                    break;
-            }
-
-            setTimeout(() => {
-                startGame()
-            }, 500);
-
-        }, 1000)
-
-    }
-
-
-
-    else {
-
-        // Default Icon Sizes
-
-        switch(computerState) {
-            case computerState = 1:
-                computerIcon.classList.add("rock-selected")
-                computerState = "rock"
-                break;
-            case computerState = 2:
-                computerIcon.classList.add("paper-selected")
-                computerState = "paper"
-                break;
-            case computerState = 3:
-                computerIcon.classList.add("scissors-selected")
-                computerState = "scissors"
-                break;
-            case value = 4:
-                computerIcon.classList.add('lizard-selected')
-                computerState = "lizard";
-                break;
-            case value = 5:
-                computerIcon.classList.add('spock-selected')
-                computerState = "spock";
-                break;
-        }
-        
-        startGame()
-    }
-
-
-
-}
-
 
 
 function playerSelect(value) {
 
+    userIcon.classList.remove(iconClassesActive, smallIconClassesActive)
+    console.log("User class contains:", userIcon.classList)
 
     // Assigning Small Icons
 
     if(windowWidth < 1300) {
+
 
 
         userIconContainer.classList.add('icon-container-small')
@@ -410,19 +354,104 @@ function playerSelect(value) {
     }
     
     
-    console.log(playerState)
+    console.log("The player has selected:", playerState)
 
     setTimeout(() => {
         computerSelect()
-    }, 1000);
+    }, 1500);
 
     return isActive = true
 }
 
 
 
+function computerSelect() {
+    computerState = Math.floor(Math.random() * (5 - 1 + 1) + 1)
+    console.log("Computer has selected", computerState)
+
+    console.log("The computer class is:", computerIcon.classList)
+
+    // Displaying chosen computer icon when screen width is under 1300
+
+    if(windowWidth < 1300) {
+
+        computerIconContainer.classList.remove('unselected-small-unactive')
+
+
+        setTimeout(() => {
+            switch(computerState) {
+                case computerState = 1:
+                    computerIcon.classList.add("rock-selected-small")
+                    computerState = "rock"
+                    break;
+                case computerState = 2:
+                    computerIcon.classList.add("paper-selected-small")
+                    computerState = "paper"
+                    break;
+                case computerState = 3:
+                    computerIcon.classList.add("scissors-selected-small")
+                    computerState = "scissors"
+                    break;
+                case value = 4:
+                    computerIcon.classList.add('lizard-selected-small')
+                    computerState = "lizard";
+                    break;
+                case value = 5:
+                    computerIcon.classList.add('spock-selected-small')
+                    computerState = "spock";
+                    break;
+            }
+                startGame()
+
+        }, 1500)
+
+    }
+
+
+
+    else {
+
+        // Default Icon Sizes
+
+        switch(computerState) {
+            case computerState = 1:
+                computerIcon.classList.add("rock-selected")
+                computerState = "rock"
+                break;
+            case computerState = 2:
+                computerIcon.classList.add("paper-selected")
+                computerState = "paper"
+                break;
+            case computerState = 3:
+                computerIcon.classList.add("scissors-selected")
+                computerState = "scissors"
+                break;
+            case value = 4:
+                computerIcon.classList.add('lizard-selected')
+                computerState = "lizard";
+                break;
+            case value = 5:
+                computerIcon.classList.add('spock-selected')
+                computerState = "spock";
+                break;
+        }
+        
+        startGame()
+    }
+
+
+
+}
+
+
+
+
+
 
 function startGame() {
+    console.log("Game has started")
+
+
     const gameValues = `${playerState}${computerState}`
     console.log(gameValues)
     if(gameValues.includes(outcomes.winning.paperRock) || gameValues.includes(outcomes.winning.rockScissors) || gameValues.includes(outcomes.winning.scissorsPaper) 
@@ -481,7 +510,7 @@ function gameEnd() {
                 gameScore = gameScore + 1;
                 score.innerHTML = gameScore
 
-            }, 500)
+            }, 1000)
             break;
 
 
@@ -505,7 +534,7 @@ function gameEnd() {
                 gameScore = gameScore - 1;
                 score.innerHTML = gameScore
 
-            }, 500)
+            }, 1000)
             break;
 
 
@@ -525,48 +554,31 @@ function gameEnd() {
                     userIcon.classList.add('win-shadow-active')
                 }
 
-            }, 500)
+            }, 1000)
             break;
     }
 
     setTimeout(() => {
         gameScreen.classList.add("space-between")
 
-    }, 1000);
+    }, 2000);
 
 }
 
 
 
+
+
+
+
+// For ending the game
+
+playBtn.addEventListener("click", () => resetGame())
+
+
 function resetGame() {
 
-    computerIcon.classList.remove('rock-selected')
-    computerIcon.classList.remove('paper-selected')
-    computerIcon.classList.remove('scissors-selected')
-    computerIcon.classList.remove('lizard-selected')
-    computerIcon.classList.remove('spock-selected')
-    computerIcon.classList.remove('win-shadow-active')
 
-    userIcon.classList.remove('scissors-selected');
-    userIcon.classList.remove('paper-selected');
-    userIcon.classList.remove('rock-selected');
-    userIcon.classList.remove('lizard-selected');
-    userIcon.classList.remove('spock-selected');
-    userIcon.classList.remove('win-shadow-active');
-
-    computerIcon.classList.remove('rock-selected-small')
-    computerIcon.classList.remove('paper-selected-small')
-    computerIcon.classList.remove('scissors-selected-small')
-    computerIcon.classList.remove('lizard-selected-small')
-    computerIcon.classList.remove('spock-selected-small')
-    computerIcon.classList.remove('win-shadow-active-small')
-
-    userIcon.classList.remove('scissors-selected-small');
-    userIcon.classList.remove('paper-selected-small');
-    userIcon.classList.remove('rock-selected-small');
-    userIcon.classList.remove('lizard-selected-small');
-    userIcon.classList.remove('spock-selected-small');
-    userIcon.classList.remove('win-shadow-active-small');
 
 
     gameResult.classList.remove('active-result-text');
@@ -592,8 +604,6 @@ function resetGame() {
 
 
 
-    computerIcon.classList.add('unselected');
-    userIcon.classList.add('unselected');
 
     gameScreen.classList.remove('small-screen-game-active')
 
@@ -615,31 +625,32 @@ function resetGame() {
     console.log('reset');
     console.clear()
 
-
+    finalClassChecks()
 
 }
 
+function finalClassChecks() {
 
 
-playBtn.addEventListener("click", () => resetGame())
-
- scissors.id.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(scissors.value))
-
-paper.id.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(paper.value))
-
- rock.id.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(rock.value));
-
- lizard.id.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(lizard.value))
-
-spock.id.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(spock.value))
+    allIconClasses.forEach((className) => {
+        computerIcon.classList.remove(className, "unselected-small-active")
+        userIcon.classList.remove(className, "unselected-small-active");
+    })
 
 
-scissorsIcon.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(scissors.value))
 
-paperIcon.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(paper.value))
+    console.log("User class contains:", userIcon.classList)
+    console.log("Computer class contains:", computerIcon.classList)
 
-rockIcon.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(rock.value));
+    
+}
 
-lizardIcon.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(lizard.value))
 
-spockIcon.addEventListener("click", () => gameIsActive ? console.log("Already selected") : initiateGame(spock.value))
+// Arrays listing all of the classes used for various assets.
+
+
+const iconClassesActive = ['rock-selected', 'paper-selected', 'scissors-selected', 'lizard-selected', 'spock-selected', 'win-shadow-active']
+
+const smallIconClassesActive = ['rock-selected-small', 'paper-selected-small', 'scissors-selected-small', 'lizard-selected-small', 'spock-selected-small', 'win-shadow-active-small']
+
+const allIconClasses = [...iconClassesActive, ...smallIconClassesActive]
