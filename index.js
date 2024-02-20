@@ -116,29 +116,9 @@ let gameScreen = document.getElementById('game-screen')
 let rulesButton = document.getElementById('rules-button')
 let rules = document.getElementById('rules')
 
+// Clear score
 
-
-
-
-
-
-
-// Rules Classes 
-
-rulesButton.addEventListener("click", () => {
-    console.log(rules.classList)
-
-    if(rules.classList.contains("rules-container-open")) {
-        rules.classList.remove("rules-container-open")
-        rules.classList.add("rules-container-close")
-    } else {
-
-        rules.classList.add('rules-container-open')
-        rules.classList.remove('rules-container-close')
-    }
-
-})
-
+let clearButton = document.getElementById('clear-button')
 
 
 
@@ -162,8 +142,36 @@ let gameIsActive = false;
 
 
 
+// Rules Classes 
+
+rulesButton.addEventListener("click", () => {
+    console.log(rules.classList)
+
+    if(rules.classList.contains("rules-container-open")) {
+        rules.classList.remove("rules-container-open")
+        rules.classList.add("rules-container-close")
+    } else {
+
+        rules.classList.add('rules-container-open')
+        rules.classList.remove('rules-container-close')
+    }
+
+});
 
 
+// Clearing score 
+
+clearButton.addEventListener("click", () => {
+    computerState = 0;
+    playerState = 0;
+    winState = 0;
+    gameScore = 0;
+    score.innerText = gameScore
+    gameValues = "";
+    gameIsActive = false;
+
+    gameEnd()
+});
 
 
 
@@ -177,15 +185,6 @@ window.addEventListener("load", () => {
     windowWidth = window.innerWidth
     console.log("The window width is:", windowWidth)
 })
-
-
-
-
-
-
-
-
-
 
 
 
@@ -232,8 +231,13 @@ function initiateGame(value) {
     rockIcon.classList.add('rockIcon-select')
     paperIcon.classList.add('paperIcon-select')
     scissorsIcon.classList.add('scissorsIcon-select')
+
+
     rules.classList.add('disable-rules')
     rulesButton.classList.add('disable-rules')
+
+    clearButton.classList.add('disable-rules')
+
 
     gameIsActive = true
 
@@ -595,6 +599,9 @@ function resetGame() {
 
     rulesButton.classList.remove('disable-rules');
     rules.classList.remove('disable-rules')
+
+    clearButton.classList.remove('disable-rules');
+
 
 
 
