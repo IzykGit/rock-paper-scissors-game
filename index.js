@@ -649,6 +649,11 @@ function finalClassChecks() {
     console.log("User class contains:", userIcon.classList)
     console.log("Computer class contains:", computerIcon.classList)
 
+
+    // Brute force icon reset. Icons reset while in developement but fail to reset while in production
+
+    userIcon.className = "";
+    computerIcon.className = "";
     
 }
 
